@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Activate the virtual environment and run tests
-                    sh '. venv/bin/activate && pytest'
+                    sh '. venv/bin/activate && python -m unittest discover'
                 }
             }
         }
