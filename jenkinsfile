@@ -39,7 +39,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 5000:5000 vinnu199/python-app:${env.BUILD_ID}'
+                script {
+                    // Use bash explicitly
+                    sh '''#!/bin/bash
+                    docker run -d -p 5000:5000 vinnu199/python-app:${env.BUILD_ID}'''
+                }
             }
         }
     }
